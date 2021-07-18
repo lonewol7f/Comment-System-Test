@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Comment-System-Test:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Comment-System-Test</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Comment-System-Test-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Comment-System-Test:war exploded" />
+    </root>
+  </artifact>
+</component>
