@@ -19,7 +19,9 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="Comment-System-Test" value="e2fc6516-ca8a-4662-ad08-b82ca0a607e0" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
