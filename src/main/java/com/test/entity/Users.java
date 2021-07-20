@@ -23,10 +23,10 @@ public class Users {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany( mappedBy = "user", cascade = CascadeType.ALL)
     private List<Comments> comments;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany( mappedBy = "user", cascade = CascadeType.ALL)
     private List<Replies> replies;
 
     public Users() {
