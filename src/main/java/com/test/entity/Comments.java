@@ -1,6 +1,7 @@
 package com.test.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public class Comments {
     @JoinColumn(name = "user_id")
     private Users user;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "comment", cascade = CascadeType.ALL)
     private List<Replies> replies;
 
     public Comments() {
@@ -62,7 +63,7 @@ public class Comments {
         return replies;
     }
 
-    public void setReplies(List<Replies> replies) {
+    public void setReplies(ArrayList<Replies> replies) {
         this.replies = replies;
     }
 
