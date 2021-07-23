@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -48,20 +47,9 @@ public class DemoController {
 
 
 
-    @GetMapping("/hello")
+    @GetMapping("comments/load")
     @ResponseBody
-    public List<Comments> hello(@RequestParam("COMMENT") String comment){
-        System.out.println("=============================================================================================================================");
-        System.out.println("=============================================================================================================================");
-        System.out.println("=============================================================================================================================");
-        System.out.println("=============================================================================================================================");
-        System.out.println("=============================================================================================================================");
-        System.out.println(comment);
-        System.out.println("=============================================================================================================================");
-        System.out.println("=============================================================================================================================");
-        System.out.println("=============================================================================================================================");
-        System.out.println("=============================================================================================================================");
-
+    public List<Comments> hello(){
         return commentService.getComments();
     }
 
