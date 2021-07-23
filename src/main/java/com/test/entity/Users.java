@@ -23,11 +23,13 @@ public class Users {
     @Column(name = "name")
     private String name;
 
-    @OneToMany( mappedBy = "user", cascade = CascadeType.ALL)
+    // -------------------------------------------------------------
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
     private List<Comments> comments;
 
-    @OneToMany( mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Replies> replies;
+    // ----------------------------------------------------------------
 
     public Users() {
     }
@@ -60,22 +62,6 @@ public class Users {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<Comments> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comments> comments) {
-        this.comments = comments;
-    }
-
-    public List<Replies> getReplies() {
-        return replies;
-    }
-
-    public void setReplies(List<Replies> replies) {
-        this.replies = replies;
     }
 
     @Override

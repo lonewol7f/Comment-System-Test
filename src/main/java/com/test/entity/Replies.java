@@ -21,13 +21,14 @@ public class Replies {
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH,
             CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinColumn(name = "comment_id")
-    private Comments comment;
-
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH,
-            CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "user_id")
     private Users user;
+
+    // -------------------------------------
+    @ManyToOne
+    @JoinColumn(name = "comment_id")
+    private Comments comment;
+    // -------------------------------------
 
     public Replies() {
     }
@@ -52,14 +53,6 @@ public class Replies {
         this.reply = reply;
     }
 
-    public Comments getComment() {
-        return comment;
-    }
-
-    public void setComment(Comments comment) {
-        this.comment = comment;
-    }
-
     public Users getUser() {
         return user;
     }
@@ -67,4 +60,13 @@ public class Replies {
     public void setUser(Users user) {
         this.user = user;
     }
+
+    // --------------------------
+    // public Comments getComment() {
+    //     return comment;
+    // }
+    //
+    // public void setComment(Comments comment) {
+    //     this.comment = comment;
+    // }
 }

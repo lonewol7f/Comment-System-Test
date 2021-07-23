@@ -1,5 +1,7 @@
 package com.test.service;
 
+import com.test.entity.Comments;
+
 import java.util.List;
 
 /**
@@ -8,6 +10,6 @@ import java.util.List;
 
 public interface CommentService {
 
-    List<List<Object>> getComments();
+    List<Comments> getComments();
 
 }
