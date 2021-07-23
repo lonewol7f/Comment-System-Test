@@ -19,7 +19,7 @@
     <security:authentication property="principal" var="principal"/>
 
     <script>
-        $(function () { /* to make sure the script runs after page load */
+        function loader() { /* to make sure the script runs after page load */
 
             $('.item').each(function (event) { /* select all divs with the item class */
 
@@ -39,11 +39,12 @@
             });
 
 
-        });
+        };
+
     </script>
 
 </head>
-<body>
+<body onload="loadData()">
 
 <div style="display: flex; align-content: center;justify-content: center">
     <h1 style="font-family: 'Ubuntu Mono'">It's Working Baby</h1>
@@ -64,7 +65,7 @@
             <textarea class="form-control" id="commentBox" placeholder="Type your comment..." rows="3"
                       style="resize: none;"></textarea>
         </div>
-        <button onclick="doSomething()" class="btn btn-primary" style="float: right;">Comment</button>
+        <button onclick="" class="btn btn-primary" style="float: right;">Comment</button>
     </div>
     <div id="results" style="clear: both; margin-top: 10vh;" class="container">
 
