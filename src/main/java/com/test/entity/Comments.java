@@ -64,8 +64,8 @@ public class Comments {
     public List<Replies> getReplies() {
         return replies;
     }
-
-    public void setReplies(List<Replies> replies) {
-        this.replies = replies;
-    }
+    //
+    // public void setReplies(List<Replies> replies) {
+    //     this.replies = replies;
+    // }
 }
