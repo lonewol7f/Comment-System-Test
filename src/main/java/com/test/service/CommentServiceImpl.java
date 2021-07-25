@@ -23,4 +23,10 @@ public class CommentServiceImpl implements CommentService{
     public List<Comments> getComments() {
         return commentDAO.getComments();
     }
+
+    @Override
+    @Transactional
+    public Comments addComment(String username, String comment) {
+        return commentDAO.addComment(username, comment);
+    }
 }
