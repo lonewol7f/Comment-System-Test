@@ -11,5 +11,6 @@ import java.util.List;
 public interface CommentDAO {
 
     List<Comments> getComments();
+    Comments addComment(String username, String  comment);
 
 }
