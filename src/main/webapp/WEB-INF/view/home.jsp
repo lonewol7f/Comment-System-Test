@@ -52,6 +52,8 @@
 <hr>
 <div>
     <p>User: ${principal.username}</p>
+    <input id="userName" value="${principal.username}" type="hidden">
+    <input id="userRole" value="${principal.authorities}" type="hidden">
 </div>
 
 <form:form action="${pageContext.request.contextPath}/logout" method="post">
@@ -65,7 +67,7 @@
             <textarea class="form-control" id="commentBox" placeholder="Type your comment..." rows="3"
                       style="resize: none;"></textarea>
         </div>
-        <button onclick="" class="btn btn-primary" style="float: right;">Comment</button>
+        <button onclick="addComment($('#userName').val())" class="btn btn-primary" style="float: right;">Comment</button>
     </div>
     <div id="results" style="clear: both; margin-top: 10vh;" class="container">
 
