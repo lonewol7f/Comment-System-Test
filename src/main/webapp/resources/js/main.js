@@ -7,7 +7,7 @@ function loadData() {
             for (let index in data) {
                 $('#results').append('<div style="margin-left: 5%;margin-right: 5%;margin-bottom: 3%;margin-top: 3%" class="border border-2 rounded mb-3">\n' +
                     '    <div style="margin-left: 5%;margin-right: 5%;margin-bottom: 3%;margin-top: 3%" class="row">\n' +  //comment start
-                            data[index].user.username + '\n' +
+                    data[index].user.username + '\n' +
                     '        <div class="item col-12 border border-1 rounded mb-2">\n' +
                     '            <p>' + data[index].comment +
                     '            </p>\n' +
@@ -21,16 +21,15 @@ function loadData() {
                     '</div>');
                 for (let reply in data[index]["replies"]) {
                     $('#repliesDiv' + index).append('' +
-                    '    <div class="item col-12 border border-1 rounded mb-2">\n' +
-                    '        <p>' + data[index]["replies"][reply].reply + '</p>\n' +
-                    '    </div>');
+                        '    <div class="item col-12 border border-1 rounded mb-2">\n' +
+                        '        <p>' + data[index]["replies"][reply].reply + '</p>\n' +
+                        '    </div>');
                 }
             } // comment and replies loader end
             loader();
         });
 
 }
-
 
 function addField(id) {
     $('#rep' + id).text('');
@@ -54,4 +53,24 @@ function sendReply(id) {
     var reply = $("#replyBox").val();
     cancelRep('cancel' + id.substring(8));
     alert('Reply: ' + reply);
+}
+
+function addComment(username) {
+    let comment = $('#commentBox').val();
+
+    if ($('#commentBox').val().trim() == '') {   // validation
+        $('#commentBox').val('');
+        console.log('comment field not set');
+    } else {
+
+        $.getJSON("comments/add",
+            {
+                comment: comment,
+                username: username
+            },
+            function (data) {
+                $('#commentBox').val('');
+                loadData();
+            });
+    }
 }
