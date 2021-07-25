@@ -1,12 +1,13 @@
 package com.test.controller;
 
 import com.test.entity.Comments;
+import com.test.entity.Users;
 import com.test.service.CommentService;
+import com.test.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +20,9 @@ public class DemoController {
 
     @Autowired
     private CommentService commentService;
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private Logger logger;
@@ -51,6 +55,19 @@ public class DemoController {
     @ResponseBody
     public List<Comments> hello(){
         return commentService.getComments();
+    }
+
+    @GetMapping("users/getUser")
+    @ResponseBody
+    public Users getUser(@RequestParam("username")String userName) {
+        return userService.getUser(userName);
+    }
+
+    @GetMapping("comments/add")
+    @ResponseBody
+    public Comments addComment(@RequestParam("comment") String comment, @RequestParam("username") String username) {
+
+        return commentService.addComment(username, comment);
     }
 
 }
