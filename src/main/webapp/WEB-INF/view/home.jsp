@@ -12,6 +12,7 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/main.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -33,7 +34,7 @@
                     $(this).html(short_content + '...' +
                         '<details>' +
                         '<summary style="float: right">see all/less</summary>' + '<p style="clear:both;">' + short_content + long_content + '</p>' +
-                        '</details>');
+                        '</details> <br>');
                 }
 
             });
@@ -52,8 +53,14 @@
 <hr>
 <div>
     <p>User: ${principal.username}</p>
-    <input id="userName" value="${principal.username}" type="hidden">
+    <%--<input id="userName" value="${principal.username}" type="hidden">--%>
+    <input id="userName" value="Kalana" type="hidden">
     <input id="userRole" value="${principal.authorities}" type="hidden">
+</div>
+
+<div class="container">
+    <a href="javascript:void(0);" onclick="sayHello()">click Me</a>
+    <button class="button-links" onclick="sayHello()">Click me</button>
 </div>
 
 <form:form action="${pageContext.request.contextPath}/logout" method="post">
@@ -67,7 +74,8 @@
             <textarea class="form-control" id="commentBox" placeholder="Type your comment..." rows="3"
                       style="resize: none;"></textarea>
         </div>
-        <button onclick="addComment($('#userName').val())" class="btn btn-primary" style="float: right;">Comment</button>
+        <%--<button onclick="addComment()" class="btn btn-primary" style="float: right;">Comment</button>--%>
+        <button onclick="addComment()" class="btn btn-primary" style="float: right;">Comment</button>
     </div>
     <div id="results" style="clear: both; margin-top: 10vh;" class="container">
 
