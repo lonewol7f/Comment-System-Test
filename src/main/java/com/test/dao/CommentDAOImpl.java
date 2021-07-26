@@ -55,10 +55,6 @@ public class CommentDAOImpl implements CommentDAO{
 
     private Comments getCommentById(int id) {
         Session session = sessionFactory.getCurrentSession();
-
-        Query<Comments> commentsQuery = session.createQuery("from Comments where id =: id", Comments.class);
-        commentsQuery.setParameter("id", id);
-
-        return commentsQuery.getSingleResult();
+        return session.get(Comments.class, id);
     }
 }
