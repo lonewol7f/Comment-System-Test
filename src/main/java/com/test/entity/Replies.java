@@ -66,7 +66,7 @@ public class Replies {
     //     return comment;
     // }
     //
-    // public void setComment(Comments comment) {
-    //     this.comment = comment;
-    // }
+    public void setComment(Comments comment) {
+        this.comment = comment;
+    }
 }
