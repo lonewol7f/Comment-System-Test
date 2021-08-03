@@ -2,6 +2,7 @@ function loadData() {
 
     $.getJSON("comments/load",
         function (data) {
+            data.reverse();
             $('#results').text('');
 
             for (let index in data) {
@@ -77,10 +78,11 @@ function addComment() {
                 comment: comment,
                 username: username
             },
-            function (data) {
+            function () {
                 $('#commentBox').val('');
                 loadData();
             });
+
     }
 }
 
@@ -88,11 +90,11 @@ function addComment() {
 function sendReply(id) {
     // var reply = $("#replyBox" + id.substring(8)).val().trim();
     var commentId = id.substring(8);
-    var reply = $("#replyBox"+commentId).val().trim();
+    var reply = $("#replyBox" + commentId).val().trim();
     var username = $('#userName').val();
 
     if (reply == '') {  // validation
-        $("#replyBox"+commentId).val('');
+        $("#replyBox" + commentId).val('');
         console.log('Reply field not set');
     } else {
 
@@ -106,6 +108,7 @@ function sendReply(id) {
                 cancelRep('cancel' + commentId);
                 loadData();
             });
+
     }
 
 }
@@ -113,6 +116,22 @@ function sendReply(id) {
 
 function sayHello() {
     console.log('hello');
+}
+
+function test() {
+
+    $.ajax('test', {
+        type: 'POST',  // http method
+        data: {name: 'Kalana.'},  // data to submit
+        success: function (data, status, xhr) {
+            console.log(data, status);
+        },
+        error: function (jqXhr, textStatus, errorMessage) {
+            console.log('Error');
+        }
+    });
+
+    console.log('awoooooo')
 }
 
 

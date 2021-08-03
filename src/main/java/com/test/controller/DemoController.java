@@ -62,4 +62,9 @@ public class DemoController {
         return replyService.addReply(reply, username, commentId);
     }
 
+    @PostMapping("/test")
+    public void test1(@RequestParam("name") String name) {
+        System.out.println("awoooooooooooooooo " + name);
+    }
+
 }

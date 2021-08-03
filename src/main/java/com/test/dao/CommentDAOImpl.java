@@ -28,7 +28,8 @@ public class CommentDAOImpl implements CommentDAO{
 
         Session session = sessionFactory.getCurrentSession();
         
-        Query<Comments> commentsQuery = session.createQuery("from Comments order by id desc", Comments.class);
+        // Query<Comments> commentsQuery = session.createQuery("from Comments order by id desc", Comments.class);
+        Query<Comments> commentsQuery = session.createQuery("from Comments", Comments.class);
         List<Comments> comments = commentsQuery.getResultList();
         
         return comments;
